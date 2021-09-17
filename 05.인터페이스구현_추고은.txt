@@ -1,0 +1,28 @@
+import requests 
+> 필요한 라이브러리 import
+
+url = "https ://kauth.kakao.com/oauth/token"
+> 사용자 토큰 발급용 url
+data = {
+ 	"grant_type" : "authorization_code",
+        "client_uri" : "https://localhost.com",
+        "code" : "<발급받은 code를 입력하세요>" }
+> 사용자 토큰 발급을 위한 필수 파라미터를 구성함
+  redirect_url과 code는  할당받은 앱키와 인증 코드값으로 변경함
+response = requests.post(url, data=data)
+>사용자 토큰 발급 요청
+
+if response.status_code != 200:
+    print("error! because" , response.json())
+else:
+    tokens = response.json()
+    print(tokens)
+> 요청이 성공적이라면 tokens 변수에 담는다 
+
+애플리케이션과 카카오 서버간에 
+인증코드요청-------> 
+             <--------인증코드전달
+인증코드로 토큰요청-----> 
+             <--------토큰전달
+토큰으로 API호출-----> 
+              <--------응답전달 
