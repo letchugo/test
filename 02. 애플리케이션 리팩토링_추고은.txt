@@ -1,0 +1,36 @@
+[문제 1] 고객 3명의 이름과 전화번호를 딕셔너리를 이용하여 프로그래밍 하세요.
+[문제 2] key를 출력하는 프로그래밍을 하세요.
+[문제 3] value를 출력하는 프로그래밍을 하세요.
+
+[답안]
+
+phone_book={ '이름이':'010-1234-5678',
+                  '강감찬':'010-1456-2493',
+                  '헬로우':'010-2323-2455'}
+for i in phone_book.keys():
+print(i)
+
+for i in phone_book.value():
+print(i)
+
+
+[문제 4] 지역변수와 전역변수를 이해하는 프로그래밍 예제입니다. 두 개의 출력 결과값을 작성하세요.
+
+result=0
+def calculate_area (radius):
+    result = 3.14 * radius**2
+r = float(input("원의 반지름: "))
+area = calculate_area(r)
+print(result)
+
+[답안]
+def calculate_area(radius):     #radius라는 매개변수를 받는 calculate_area라는 이름의 함수 정의
+    result=3.14*radius**2
+    return result               #result값 반환
+
+r=float(input("원의 반지름: "))  #반지름 입력받아서 r에 넣음
+area = calculate_area(r)        #r값으로 함수 호출한뒤 반환값 area에 넣음
+print(area)                     #area(즉 result) 출력
+ 
+
+result=0 
